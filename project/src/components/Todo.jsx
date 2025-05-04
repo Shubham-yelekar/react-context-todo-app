@@ -4,6 +4,12 @@ import { TodoProvider } from "../context";
 
 const Todo = () => {
   const [todos, setTodos] = useState([]);
+  const date = new Date();
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  }).format(date);
 
   const addTodo = (todo) => {
     setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev]);
@@ -21,9 +27,8 @@ const Todo = () => {
 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"));
-    if (todos && todos.lenght > 0) {
+    if (todos && todos.length > 0) {
       setTodos(todos);
-      console.log(todos);
     }
   }, []);
 
@@ -44,6 +49,10 @@ const Todo = () => {
       value={{ todos, addTodo, deleteTodo, updateTodo, toggleTodo }}
     >
       <FormInput />
+      <h2 className="text-slate-400 my-5">
+        <span className="font-bold text-slate-600 ">Task for</span> ●{" "}
+        {formattedDate}
+      </h2>
       <TaskList />
       <TaskCard />
     </TodoProvider>
