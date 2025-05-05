@@ -18,7 +18,7 @@ const TaskCard = ({ task }) => {
 
   return task ? (
     <div
-      className={`cursor-pointer p-2 flex justify-between items-center rounded-full transition-colors duration-300 ${
+      className={`cursor-pointer p-2 flex gap-2 justify-between items-center rounded-full transition-colors duration-300 ${
         task.completed ? "bg-green-100" : "bg-[#F6E7D5]"
       }`}
     >
@@ -28,7 +28,7 @@ const TaskCard = ({ task }) => {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="bg-transparent h-full px-2 focus:outline-none focus-within:bg-slate-50"
+            className="bg-transparent flex-1 h-[32px] px-2 focus:outline-none focus-within:bg-[#fdf7ef] rounded-full"
           />
           <button className="action-button" onClick={handleSave}>
             <IoIosSave />
