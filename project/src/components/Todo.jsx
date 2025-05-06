@@ -48,7 +48,7 @@ const Todo = () => {
     <TodoProvider
       value={{ todos, addTodo, deleteTodo, updateTodo, toggleTodo }}
     >
-      <div className=" w-full p-4 md:w-[500px] absolute left-[50%] top-[20%] translate-x-[-50%] translate-y-[-50%] ">
+      <div className=" w-full p-4 md:w-[500px] m-auto ">
         <FormInput />
         <h2 className="text-slate-400 my-5">
           <span className="font-bold text-slate-600 ">Task for</span> ●{" "}
